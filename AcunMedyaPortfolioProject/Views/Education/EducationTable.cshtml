@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "EducationTable";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Eğitim Kontrol Paneli</h2>
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>Kurum Adı</th>
+            <th>Başlama Tarihi</th>
+            <th>Bitiş Tarihi</th>
+            <th>Açıklama</th>
+            <th>Güncelle</th>
+            <th>Kaldır</th>
+        </tr>
+        <tbody>
+            @foreach (var education in Model)
+            {
+                <tr>
+                    <td>@education.Id</td>
+                    <td>@education.Title</td>
+                    <td>@education.InstutionName</td>
+                    <td>@education.StartDate</td>
+                    <td>@education.EndDate</td>
+                    <td>@education.Description</td>
+                    <td><a href="/Education/UpdateEducation/@education.Id" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Education/DeleteEducation/@education.Id" class="btn btn-danger">Kaldır</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Education/CreateEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>
+</div>

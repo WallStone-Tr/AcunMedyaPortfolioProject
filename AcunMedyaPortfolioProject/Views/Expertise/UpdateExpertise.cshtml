@@ -1,0 +1,16 @@
+﻿@model AcunMedyaPortfolioProject.Models.Expertise
+@{
+    ViewBag.Title = "UpdateExpertise";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Uzmanlık Güncelleme Paneli</h2>
+<div class="container">
+    <form method="post">
+        @Html.HiddenFor(x => x.Id)
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(x => x.Text, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Uzmanlığı Güncelle</button>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@model List<AcunMedyaPortfolioProject.Models.About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container">
+    <h2>Hakkımda Kontrol Paneli</h2>
+    <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Başlık</th>
+                <th>Açıklama</th>
+                <th>Resim</th>
+                <th>CV Link</th>
+                <th>Güncelle</th>
+                <th>Kaldır</th>
+            </tr>
+        <tbody>
+            @foreach (var about in Model)
+            {
+                <tr>
+                    <td>@about.Id</td>
+                    <td>@about.Title</td>
+                    <td>@about.Description</td>
+                    <td><img src="@about.ImageUrl" alt="Resim" class="img-fluid" style="width: 100px; height: auto;"></td>
+                    <td><a href="~/CV/Profile.pdf" target="_blank" class="btn btn-info">İncele</a></td>
+                    <td><a href="/About/UpdateAbout/@about.Id" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/About/DeleteAbout/@about.Id" class="btn btn-danger">Kaldır</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/About/CreateAbout" class="btn btn-primary">Yeni Açıklama Ekle</a>
+</div>
